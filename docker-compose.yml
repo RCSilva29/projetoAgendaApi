@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  agendaapi-db:
+    image: postgres:15
+    container_name: agendaapi-db
+    restart: always
+    environment:
+      POSTGRES_DB: agendaapi
+      POSTGRES_USER: agendauser
+      POSTGRES_PASSWORD: agendapassword
+    ports:
+      - "5433:5432"
+    volumes:
+      - agendaapi_pgdata:/var/lib/postgresql/data
+
+volumes:
+  agendaapi_pgdata:
